@@ -30,6 +30,10 @@
             <h1 class="hero-title">Welcome to my Portfolio!</h1>
             <p class="hero-text">I'm Patriarch, a software engineering student with a passion for building innovative and creative solutions.</p>
             <button class="cta-button">Explore My Work</button>
+             <p class="tagline">Building professional, modern web experiences.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn gradient">Hire Me</a>
+        <a href="#projects" class="btn outline">See My Work</a>
         </div></section>
 
         <section id="about">
@@ -56,73 +60,73 @@
             <h2>My Projects</h2>
             <div class="project-grid">
 
-                <div class="project-item">
+                <div class="project-item" onclick="openModal('images/banking-landing page.png', 'Banking Landing Page', 'A sleek and modern landing page for a banking service.')">
                     <img src="images/banking-landing page.png" alt="Screenshot of Project 1">
                     <h3>Banking Landing Page</h3>
                     <p>A sleek and modern landing page for a banking service.</p>
                 </div>
 
-                <div class="project-item">
+                <div class="project-item" onclick="openModal('images/css-animation.png', 'Christmas Animation Box', 'A festive animation box created using CSS.')">
                     <img src="images/css-animation.png" alt="screenshot of project 2">
                     <h3>Christmas Animation Box</h3>
                     <p>A festive animatiion box created using css.</p>
                 </div>
 
-                <div class="project-item">
+                <div class="project-item" onclick="openModal('images/web-3.png', 'Web 3 Landing Page', 'A futuristic landing page for a Web 3 platform.')">
                     <img src="images/web-3.png" alt="screenshot of project 3">
                     <h3>Web 3 Landing Page</h3>
                     <p>A futuristic landing page for a Web 3 platform.</p>
                 </div>
 
-                <div class="project-item">
+                <div class="project-item" onclick="openModal('images/figma.png', 'Mechanical Engineering Website Design', 'A Figma design for a mechanical engineering website.')">
                     <img src="images/figma.png" alt="screenshot of project 4">
                     <h3>Mechanical Engineering Website Design</h3>
                     <p>A Figma design for a mechanical engineering website.</p>
                 </div>
 
-                <div class="project-item">
+                <div class="project-item" onclick="openModal('images/easy-banking.png', 'Easy Banking Landing Page', 'A simple and user-friendly landing page for an easy banking service.')">
                     <img src="images/easy-banking.png" alt="screenshot of project 5">
                     <h3>Easy Banking Landing Page</h3>
                     <p>A simple and user-friendly landing page for an easy banking service.</p>
                 </div>
 
-                <div class="project-item">
+                <div class="project-item" onclick="openModal('images/forklift.png', 'Forklift Hiring', 'A website for forklift hiring services.')">
                     <img src="images/forklift.png" alt="screenshot of project 6">
                     <h3>Forklift Hiring</h3>
                     <p>A website for forklift hiring services.</p>
                 </div>
 
-                <div class="project-item">
+                <div class="project-item" onclick="openModal('images/figs.png', 'Travelling App Design', 'A figma design of a travelling mobile application.')">
                     <img src="images/figs.png" alt="">
                     <h3>Travelling App Design</h3>
                     <p>A figma design of a travelling mobile application.</p>
                 </div>
 
-                <div class="project-item">
+                <div class="project-item" onclick="openModal('images/password-generator.png', 'Password Generator', 'A simple java Password Generator.')">
                     <img src="images/password-generator.png" alt="">
                     <h3>Password Generator</h3>
                     <p>A simple java Password Generator.</p>
                 </div>
 
-                <div class="project-item">
+                <div class="project-item"  onclick="openModal('images/quiz.png', 'Quiz Game', 'A java-fx based quiz game with simple features.')">
                     <img src="images/quiz.png" alt="">
                     <h3>Quiz Game</h3>
                     <p>A java-fx based quiz game with simple features.</p>
                 </div>
 
-                <div class="project-item">
+                <div class="project-item"   onclick="openModal('images/preview-card.png', 'ETH Site', 'A random ethereum website from frontend mentor.')">
                     <img src="images/preview-card.png" alt="">
                     <h3>ETH Site</h3>
                    <p>A random ethereum website from frontend mentor.</p>
                 </div>
 
-                <div class="project-item">
+                <div class="project-item" onclick="openModal('images/card.png', '3 Column Preview Card', 'A 3 column preview card component for sedans, suvs and luxury cars.')">
                     <img src="images/card.png" alt="">
                     <h3>3 Column Preview Card</h3>
                     <p>A 3 column preview card component for sedans, suvs and luxury cars.</p>
                 </div>
 
-                <div class="project-item">
+                <div class="project-item" onclick="openModal('images/testimonials.png', 'Testimonials Page', 'A testimonials website with few features.')">
                     <img src="images/testimonials.png" alt="">
                     <h3>Testimonials Page</h3>
                     <p>A testimonials website with few features.</p>
@@ -153,7 +157,7 @@
             </div>
         </section>
 
-        <section id="contact">
+        <section id="contact" class="contact">
             <h2>Get in Touch</h2>
             <div class="contact-info">
                 <h4>If you have any questions or would like to get in touch, feel free to reach out!</h4>
@@ -162,12 +166,31 @@
             <p><img src="images/x.png" alt=""> @PamPatriarch</p>
             <p><img src="images/ph.png" alt=""> +234-803-537-9082</p>
             </div>
+                <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn gradient">Send Message</button>
+    </form>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2025 Pam Patriarch. All rights reserved.</p>
     </footer>
+    <a href="https://wa.me/2348035379082?text=Hello%20I%20checked%20your%20portfolio%20and%20would%20like%20to%20chat" 
+   class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
+  WhatsApp <br>💬
+</a>
+<!-- Popup Modal -->
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+
     <script>
   const menuBtn = document.getElementById("menu-btn");
   const navLinks = document.getElementById("nav-links");
@@ -178,5 +201,20 @@
 
   });
 </script>
+<script>
+function openModal(imgSrc, title, description) {
+  document.getElementById("modalBody").innerHTML = `
+    <img src="${imgSrc}" alt="${title}" style="max-width:100%; border-radius:8px; margin-bottom:15px;">
+    <h2>${title}</h2>
+    <p>${description}</p>
+  `;
+  document.getElementById("projectModal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("projectModal").style.display = "none";
+}
+</script>
+
 </body>
 </html>
