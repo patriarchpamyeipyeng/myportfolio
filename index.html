@@ -141,7 +141,8 @@
                 <li><img src="images/download.jpg" alt="c++">C++</li>
             <li><img src="images/github.png" alt="">GitHub</li>
                 <li> <img src="images/figma.jpg" alt="figma">Figma</li>
-               
+               <li> <img src="images/image.png" alt="figma">TypeScript</li>
+               <li> <img src="images/strapi.png" alt="figma">Strapi</li>
                 <li> <img src="images/flutter.png" alt="flutter">Flutter(Dart)</li>
                
                 <li><img src="images/react.png" alt="react">React</li>
@@ -173,6 +174,8 @@
 
   menuBtn.addEventListener("click", () => {
     navLinks.classList.toggle("active");
+          menuBtn.textContent = navLinks.classList.contains("active") ? "✖" : "☰";
+
   });
 </script>
 </body>
