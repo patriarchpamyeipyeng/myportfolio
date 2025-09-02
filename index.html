@@ -7,19 +7,22 @@
     <link rel="icon" href="images/noto--woman-technologist.svg">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
+<body>      
     <header>
-        <nav>
-            <ul>
-                <li><a href="#home">HOME</a></li>
-                <li><a href="#about">ABOUT</a></li>
-                <li><a href="#projects">PROJECTS</a></li>
-                <li><a href="#skills">SKILLS</a></li>
-                <li><a href="#contact">CONTACT</a></li>
-            </ul>
-        </nav>
-    </header>
+  <nav class="navbar">
+    <div class="logo">Patriarch</div>
+    <button class="hamburger" id="menu-btn" aria-label="Toggle Menu">
+      ☰
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">HOME</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#projects">PROJECTS</a></li>
+      <li><a href="#skills">SKILLS</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+</header>
 
     <main>
         <section id="home" class="hero-section">
@@ -164,5 +167,13 @@
     <footer>
         <p>&copy; 2025 Pam Patriarch. All rights reserved.</p>
     </footer>
+    <script>
+  const menuBtn = document.getElementById("menu-btn");
+  const navLinks = document.getElementById("nav-links");
+
+  menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
 </body>
 </html>
