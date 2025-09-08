@@ -10,7 +10,9 @@
 <body>      
     <header>
   <nav class="navbar">
-    <div class="logo">Patriarch</div>
+   <div class="logo">
+      <span class="logo-accent">P</span>atriarch. <span style="color: #55557a;">d</span>ev
+    </div>
     <button class="hamburger" id="menu-btn" aria-label="Toggle Menu">
       ☰
     </button>
@@ -163,12 +165,19 @@
             <p><img src="images/x.png" alt=""> @PamPatriarch</p>
             <p><img src="images/ph.png" alt=""> +234-803-537-9082</p>
             </div>
-                <form class="contact-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn gradient">Send Message</button>
+
+                <form id="contact-form" class="contact-form" action="https://formspree.io/f/mwpnaaaw" method="POST" >
+     <label for="name">Name</label>
+                    <input type="text" placeholder="Your Name" name="name" id="name" required>
+                    <label for="email">Email</label>
+      <input type="email" placeholder="Your Email" required name="email" id="email">
+        <label for="message">Message</label>
+      <textarea placeholder="Your Message" required name="message" id="message"></textarea>
+      <button type="submit" class="btn gradient" >Send Message</button>
     </form>
+    
+<!-- Inline message box -->
+<div id="form-status" class="form-status"></div>
         </section>
     </main>
 
@@ -212,6 +221,53 @@ function closeModal() {
   document.getElementById("projectModal").style.display = "none";
 }
 </script>
+
+<script>
+ const form = document.getElementById("contact-form");
+const statusBox = document.getElementById("form-status");
+const submitBtn = form.querySelector("button");
+
+form.addEventListener("submit", async function (event) {
+  event.preventDefault();
+
+  // Loading state
+  submitBtn.classList.add("loading");
+
+  const data = {
+    name: form.elements["name"].value,
+    email: form.elements["email"].value,
+    message: form.elements["message"].value
+  };
+
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+      statusBox.textContent = "✅ Message sent successfully!";
+      statusBox.className = "form-status success";
+      form.reset();
+    } else {
+      statusBox.textContent = "❌ Something went wrong. Please try again.";
+      statusBox.className = "form-status error";
+    }
+  } catch (error) {
+    console.error(error);
+    statusBox.textContent = "⚠️ Network error. Check your connection.";
+    statusBox.className = "form-status error";
+  } finally {
+    submitBtn.classList.remove("loading");
+  }
+});
+
+</script>
+
 
 </body>
 </html>

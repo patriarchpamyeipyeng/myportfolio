@@ -27,9 +27,20 @@ header {
   color: #fff;
 }
 
+
+/* Logo */
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: slideIn 0.8s ease forwards;
+}
+
+.logo-accent {
+  color: #55557a; /* purple accent */
 }
 
 .nav-links {
@@ -44,9 +55,40 @@ header {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+   opacity: 0;
+  transform: translateY(-15px);
+  animation: fadeUp 0.6s ease forwards;
+}
+.nav li:nth-child(1) a { animation-delay: 0.3s; }
+.nav li:nth-child(2) a { animation-delay: 0.5s; }
+.nav li:nth-child(3) a { animation-delay: 0.7s; }
+
+/* Animations */
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
 .nav-links a:hover {
   color: #000;
   font-weight: bold;
@@ -115,10 +157,10 @@ header {
 }
 
 .cta-button:hover {
-  background-color: #3a406b ;
+  background-color: inherit ;
   cursor: pointer;
   text-transform: uppercase;
-  color: #fff;
+  box-shadow: 0 4px 15px rgba(215, 214, 214, 0.2);
 }
 
 /* Main layout */
@@ -289,10 +331,20 @@ h1,h2,h3 {
 }
 .contact-form {
   max-width: 500px;
-  margin: auto;
+  margin: 2rem auto;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1e1e2f, #2b2b40);
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  color: #fff;
+}
+.contact-form label{
+  display: block;
+  font-weight: 500;
+  color: #ccc;
 }
 
 .contact-form input,
@@ -300,6 +352,37 @@ h1,h2,h3 {
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 6px;
+  border: none;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  width: 100%;
+    background: #1a1a28;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+/* Focus Effect */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  background: #25253b;
+  box-shadow: 0 0 0 2px #6c63ff; /* matches hero purple */
+}
+/* Button */
+.contact-form button {
+  display: inline-block;
+  background: linear-gradient(135deg, #6c63ff, #4b47d1);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(108, 99, 255, 0.4);
 }
 
 .contact-form textarea {
@@ -460,4 +543,49 @@ body.modal-open {
   top: 10px; right: 15px;
   font-size: 24px;
   cursor: pointer;
+}
+/* Status messages */
+.form-status {
+  margin-top: 1rem;
+  font-weight: 500;
+  display: none;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.form-status.success {
+  display: block;
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #34d399;
+}
+
+.form-status.error {
+  display: block;
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #f87171;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Button loading animation */
+.btn.loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.btn.loading::after {
+  content: "⏳ Sending...";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
+  color: white;
 }
