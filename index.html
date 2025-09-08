@@ -264,6 +264,14 @@ form.addEventListener("submit", async function (event) {
   } finally {
     submitBtn.classList.remove("loading");
   }
+    // Clear status on page load
+  window.addEventListener("load", () => {
+    const status = document.getElementById("form-status");
+    if (status) {
+      status.textContent = ""; // clear the text
+      status.className = "form-status"; // reset styling
+    }
+  });
 });
 
 </script>
