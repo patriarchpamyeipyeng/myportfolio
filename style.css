@@ -192,7 +192,7 @@ h1, h2 {
   animation: fadeInUp 0.5s ease-in-out;
   text-align: center;
   cursor: pointer;
-  max-width: 300px; /* keeps them minimal */
+  width: 100%; 
   margin: auto; /* centers in grid cell */
 }
 
@@ -384,10 +384,10 @@ footer {
 /* ✅ Fix projects grid responsiveness */
 @media (max-width: 992px) {
   .project-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: 1fr;
   }
   .project-item {
-    max-width: 100%; /* allow them to stretch */
+   width: 100%; /* allow them to stretch */
   }
 }
 
